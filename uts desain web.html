@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabel Uts Design Web Kelompok 1</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .editable {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 6px 5px;
+        min-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+        text-align: center;
+      }
+
+      .editable:focus {
+        outline: none;
+        background-color: #f1f1f1;
+        border: 1px solid #4caf50;
+      }
+      .btn1 {
+        margin-left: 35%;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="myTable">
+      <h1>UTS DESAIN WEB</h1>
+      <p>Alfitra Pratama (202110417001)</p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <thead>
+        <tr>
+          <th contenteditable="true" id="header"></th>
+          <th contenteditable="true" id="header"></th>
+          <th contenteditable="true" id="header"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+        </tr>
+        <tr>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+        </tr>
+        <tr>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+          <td contenteditable="true" class="editable"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      // fungsi untuk menambahkan baris pada tabel
+      function addRow() {
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.contentEditable = true;
+        cell2.contentEditable = true;
+        cell3.contentEditable = true;
+        cell1.className = "editable";
+        cell2.className = "editable";
+        cell3.className = "editable";
+      }
+
+      // fungsi untuk menghapus baris pada tabel
+      function deleteRow() {
+        var table = document.getElementById("myTable");
+        var rowCount = table.rows.length;
+        if (rowCount > 2) {
+          table.deleteRow(rowCount - 1);
+        }
+      }
+    </script>
+
+    <button class="btn1" onclick="addRow()">Tambah Baris</button>
+    <button class="btn2" onclick="deleteRow()">Hapus Baris</button>
+  </body>
+</html>
